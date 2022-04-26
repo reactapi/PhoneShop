@@ -1,0 +1,119 @@
+@url=http://localhost:5000/api/phones
+
+### GET ALL
+GET {{url}}?_page=1
+Content-Type: application/json
+
+### GEt
+GET {{url}}/iphone-12
+Content-Type: application/json
+
+### ADD
+POST {{url}}
+Content-Type: application/json
+
+{
+  "name": "iPhone",
+  "category": "61a380b767f7d33516f3fe94",
+  "models": [
+    {
+      "rom": "64GB",
+      "ram": "4GB",
+      "color": "Trắng",
+      "price": 20490000
+    },
+    {
+      "rom": "64GB",
+      "ram": "4GB",
+      "color": "Đen",
+      "price": 20490000
+    },
+    {
+      "rom": "64GB",
+      "ram": "4GB",
+      "color": "Đỏ",
+      "price": 20490000
+    },
+    {
+      "rom": "64GB",
+      "ram": "4GB",
+      "color": "Xanh lá",
+      "price": 20490000
+    },
+    {
+      "rom": "64GB",
+      "ram": "4GB",
+      "color": "Xanh dương",
+      "price": 20490000
+    },
+    {
+      "rom": "64GB",
+      "ram": "4GB",
+      "color": "Tím",
+      "price": 20490000
+    }
+  ],
+  "photos": [
+    {
+      "title": "Xanh" 
+    },
+    {"title": "Đen"}
+  ],
+  "status": true
+}
+
+### UPDATE
+PUT {{url}}/61a6031a9ad87ec1dd33e09f
+Content-Type: application/json
+
+{
+  "name": "Xiaomi Redmi Note 7",
+  "category": "61a380a667f7d33516f3fe88",
+  "models": [
+    
+    {
+      "rom": "32GB",
+      "ram": "3GB",
+      "color": "Đỏ",
+      "price": 4100000
+    },
+    {
+      "rom": "32GB",
+      "ram": "3GB",
+      "color": "Xanh",
+      "price": 4000000
+    },
+    {
+      "rom": "32GB",
+      "ram": "3GB",
+      "color": "Đen",
+      "price": 4200000
+    },
+    {
+      "rom": "64GB",
+      "ram": "4GB",
+      "color": "Xanh",
+      "price": 4500000
+    },
+    {
+      "rom": "64GB",
+      "ram": "4GB",
+      "color": "Đỏ",
+      "price": 4600000
+    },
+    {
+      "rom": "64GB",
+      "ram": "4GB",
+      "color": "Đen",
+      "price": 4700000
+    }
+  ],
+  "photos": [
+    {"title": "Xanh","url": "https://vnreview.vn/image/19/12/85/1912850.jpg?t=1551357413963"},
+    {"title": "Đen", "url": "https://cdn.tgdd.vn/Products/Images/42/167535/xiaomi-redmi-note-7-den-new-600x600-200x200.jpg"}
+  ],
+  "status": true
+}
+
+### DELETE
+DELETE {{url}}/61a39b241ba1df865f5965d8

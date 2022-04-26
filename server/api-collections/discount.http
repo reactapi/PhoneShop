@@ -1,0 +1,32 @@
+@url=http://localhost:5000/api/discounts
+
+### GET LIST
+GET {{url}}?_page=1
+Content-Type: application/json
+
+### GET
+GET {{url}}/ITM
+
+### ADD
+POST {{url}}
+Content-Type: application/json
+
+{
+  "code": "ITM",
+  "name": "ITM",
+  "quantity": 20
+}
+
+### UPDATE
+PUT {{url}}/61d56f75b26808e952ac710b
+Content-Type: application/json
+
+{
+  "code": "HappyNewYear2022",
+  "quantity": 100,
+  "price": 200000,
+  "status": true
+}
+
+### DELETE
+DELETE {{url}}/61d56fa9b26808e952ac7111

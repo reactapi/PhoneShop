@@ -1,0 +1,26 @@
+@url=http://localhost:5000/api/banners
+
+### GET LIST
+GET {{url}}?_page=1
+Content-Type: application/json
+
+### ADD
+POST {{url}}
+Content-Type: application/json
+
+{
+  "name": "Hihi hu hu",
+  "parent": "619e40eb2d1124f45588d2ce",
+  "status": false
+}
+
+### UPDATE
+PUT {{url}}/61a33ad750c0c72a5ba04402
+Content-Type: application/json
+
+{
+  "status": false
+}
+
+### DELETE
+DELETE {{url}}/619e40eb2d1124f45588d2ce

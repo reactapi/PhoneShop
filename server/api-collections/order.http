@@ -1,0 +1,29 @@
+@url=http://localhost:5000/api/orders
+
+### GET ALL
+GET {{url}}?_page=1&user=61d4057469cac6676863e870
+Content-Type: application/json
+
+### GET TOP CUSTOMERS
+GET {{url}}/topcustomers?_limit=10
+
+### GET TOP PHONES
+GET {{url}}/topphones?_limit=10
+
+### ADD
+POST {{url}}
+Content-Type: application/json
+
+{
+  "name": "Hihi hu hu",
+  "parent": "619e40eb2d1124f45588d2ce",
+  "status": false
+}
+
+### UPDATE
+PUT {{url}}/61b0334e1464e68d5b76f456
+Content-Type: application/json
+
+{
+  "status": false
+}

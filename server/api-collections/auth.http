@@ -1,0 +1,29 @@
+@url=http://localhost:5000/api/auth
+
+### CHECK FOR LOGGED USER
+GET {{url}}
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MWQxODc2Y2NhZmZjYTVhOTFiZGUzYjIiLCJpYXQiOjE2NDEyODU3ODF9.-PDtU82LTpyFLDxg3vS_cr4rR_cDmKu9OvYU1iVAAc0
+
+### LOGIN USER
+POST {{url}}/login
+Content-Type: application/json
+
+{
+  "username": "vhungitm@gmail.com",
+  "password": "123456"
+}
+
+### REGISTER USER
+PUT {{url}}/register
+Content-Type: application/json
+
+{
+  "username": "vhungitm@gmail.com",
+  "password": "123456",
+  "name": "Mr Hung",
+  "gender" : "Nam",
+  "dateOfBirth": "1998-11-21",
+  "address": "BD",
+  "phone": "0376889964",
+  "email": "vhungitm@gmail.com"
+}
