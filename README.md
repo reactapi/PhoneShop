@@ -7,7 +7,8 @@
 <br/>
 <br/>
 <b>Thành viên thực hiện</b><br/>
-- Trần Văn Hùng (Tự nghiên cứu)<br/>
+- Trần Văn Hùng (Tự nghiên cứu)
+- <br/>
 <br/>
 <b>Công nghệ sử dụng</b><br/>
 - Front-end: NodeJS, Redux (Toolkit), Bootstrap.
