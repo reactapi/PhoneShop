@@ -5,7 +5,6 @@
 <b>Mô tả</b><br/>
 - Xây dựng website bán điện thoại cho cửa hàng PhoneShop.
 <br/>
-<br/>
 <b>Thành viên thực hiện</b><br/>
 - Trần Văn Hùng (Tự nghiên cứu)
 - <br/>
