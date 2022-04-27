@@ -12,12 +12,12 @@ Xây dựng website bán điện thoại cho cửa hàng PhoneShop.
 
 ## 3. Hướng dẫn cài đặt
 ### 3.1. Front-end
-> `cd client`
-> `yarn start`
+`cd client`  
+`yarn start`
 
 ### 3.1. Back-end
-> `cd server`
-> `npm run server`
+`cd server`  
+`npm run server`
 
 ## 4. Chức năng
 
