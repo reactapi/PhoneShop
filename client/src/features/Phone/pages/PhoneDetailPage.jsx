@@ -76,25 +76,26 @@ const PhoneDetailPage = () => {
 
 		setSelectedModel({
 			rom,
-			ram: models[0].ram,
-			color: models[0].color
+			ram: models[0]?.ram || null,
+			color: models[0]?.color || null
 		});
 	};
 
 	// Rams
 	const [rams, setRams] = useState([]);
 	useEffect(() => {
-		const models =
-			phone.models?.filter(x => x.rom === selectedModel.rom) || [];
-		const newRams = [];
+		let newRams = [];
 
-		for (let model of models) {
-			if (newRams.findIndex(x => x === model.ram) < 0) {
+		for (let model of phone.models || []) {
+			if (
+				model.rom === selectedModel.rom &&
+				newRams.findIndex(x => x === model.ram) < 0
+			) {
 				newRams.push(model.ram);
 			}
 		}
 
-		setRams(newRams || []);
+		setRams(newRams);
 	}, [phone.models, selectedModel.rom]);
 
 	const handleSelectRam = ram => {
@@ -114,19 +115,19 @@ const PhoneDetailPage = () => {
 	const [colors, setColors] = useState([]);
 
 	useEffect(() => {
-		const models =
-			phone.models?.filter(
-				x => x.rom === selectedModel.rom && x.ram === selectedModel.ram
-			) || [];
-		const newColors = [];
+		let newColors = [];
 
-		for (let model of models) {
-			if (newColors.findIndex(x => x === model.color) < 0) {
+		for (let model of phone.models || []) {
+			if (
+				model.rom === selectedModel.rom &&
+				model.ram === selectedModel.ram &&
+				newColors.findIndex(x => x === model.color) < 0
+			) {
 				newColors.push(model.color);
 			}
 		}
 
-		setColors(newColors || []);
+		setColors(newColors);
 	}, [phone.models, selectedModel.rom, selectedModel.ram]);
 
 	const handleSelectColor = color => {

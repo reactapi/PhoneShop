@@ -21,45 +21,63 @@ const PhonePage = props => {
 
 	// Category
 	const { categoryMetaTitle } = useParams();
-
-	const [category, setCategory] = useState({});
+	const [category, setCategory] = useState(null);
+	const [isSettedDefaultFilter, setIsSettedDefaultFilter] = useState(false);
 	useEffect(() => {
 		const fetchCategory = async () => {
-			if (categoryMetaTitle) {
-				const res = await categoryApi.fetch(categoryMetaTitle);
+			const res = await categoryApi.fetch(categoryMetaTitle);
 
-				if (res.status) {
-					setCategory(res.category);
-				} else {
-					history.push('/404');
-				}
+			if (res.status) {
+				setCategory(res.category);
+				dispatch(
+					phoneActions.setFilter({
+						category: res.category._id,
+						status: true,
+						_page: 1,
+						_limit: 8
+					})
+				);
+			} else {
+				history.push('/404');
 			}
+
+			setIsSettedDefaultFilter(true);
 		};
 
-		fetchCategory();
-	}, [history, categoryMetaTitle]);
+		if (categoryMetaTitle) fetchCategory();
+		else {
+			setCategory(null);
+			dispatch(
+				phoneActions.setFilter({
+					category: undefined,
+					status: true,
+					_page: 1,
+					_limit: 8
+				})
+			);
 
-	// Filter
-	const filter = useSelector(selectPhoneFilter);
-	useEffect(() => {
-		dispatch(
-			phoneActions.setFilter({
-				category: category._id,
-				status: true,
-				_page: 1,
-				_limit: 8
-			})
-		);
-	}, [dispatch, category._id]);
+			setIsSettedDefaultFilter(true);
+		}
+	}, [history, dispatch, categoryMetaTitle]);
 
 	// Loading
 	const loading = useSelector(selectPhoneLoading);
 
+	// Filter
+	const filter = useSelector(selectPhoneFilter);
+
 	// Fetch phones
 	const phones = useSelector(selectPhones);
 	useEffect(() => {
-		dispatch(fetchPhones(filter));
+		if (filter.category) {
+			dispatch(fetchPhones(filter));
+		}
 	}, [dispatch, filter]);
+
+	useEffect(() => {
+		if (!categoryMetaTitle && !filter.category && isSettedDefaultFilter)
+			dispatch(fetchPhones(filter));
+	}, [dispatch, categoryMetaTitle, filter, isSettedDefaultFilter]);
 
 	// Pagination
 	const pagination = useSelector(selectPhonePagination);

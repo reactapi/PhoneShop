@@ -1,10 +1,10 @@
 @url=http://localhost:5000/api/phones
 
 ### GET ALL
-GET {{url}}?_page=1
+GET {{url}}?_page=1&category=6267feb6b7de54e713f0bb8c
 Content-Type: application/json
 
-### GEt
+### GET
 GET {{url}}/iphone-12
 Content-Type: application/json
 

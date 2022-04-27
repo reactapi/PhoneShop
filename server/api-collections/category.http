@@ -4,6 +4,9 @@
 GET {{url}}?_page=1
 Content-Type: application/json
 
+### GET
+GET {{url}}/samsung
+
 ### ADD
 POST {{url}}
 Content-Type: application/json

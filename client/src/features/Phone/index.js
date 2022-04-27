@@ -7,7 +7,11 @@ const PhoneFeature = () => {
 	return (
 		<Switch>
 			<Route exact path="/dien-thoai" component={PhonePage} />
-			<Route exact path="/dien-thoai/:categoryMetaTitle" component={PhonePage} />
+			<Route
+				exact
+				path="/dien-thoai/:categoryMetaTitle"
+				component={PhonePage}
+			/>
 			<Route
 				exact
 				path="/dien-thoai/:categoryMetaTitle/:phoneMetaTitle"

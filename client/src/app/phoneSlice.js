@@ -3,16 +3,19 @@ import phoneApi from 'api/phoneApi';
 const { createSlice, createAsyncThunk } = require('@reduxjs/toolkit');
 
 // Thunk
-export const fetchPhones = createAsyncThunk('category/fetchPhones', async (params, thunkAPI) => {
-	try {
-		const res = await phoneApi.fetchList(params);
+export const fetchPhones = createAsyncThunk(
+	'phone/fetchPhones',
+	async (params, thunkAPI) => {
+		try {
+			const res = await phoneApi.fetchList(params);
 
-		if (res.status) return res;
-		return null;
-	} catch (error) {
-		return null;
+			if (res.status) return res;
+			return null;
+		} catch (error) {
+			return null;
+		}
 	}
-});
+);
 
 // InitialState
 const initialState = {
