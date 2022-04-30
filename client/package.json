@@ -25,7 +25,7 @@
 		"react-webpack": "^0.4.1",
 		"remove": "^0.1.5",
 		"web-vitals": "^1.0.1",
-		"yarn": "^1.22.17",
+		"yarn": "^1.22.18",
 		"yup": "^0.32.11"
 	},
 	"scripts": {

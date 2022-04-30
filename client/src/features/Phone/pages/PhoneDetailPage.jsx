@@ -166,6 +166,13 @@ const PhoneDetailPage = () => {
 		setPhotoActiveIndex(0);
 	}, [photos]);
 
+	// Description
+	const [showFullDescription, setShowFullDescription] = useState(false);
+
+	const handleShowDescription = () => {
+		setShowFullDescription(!showFullDescription);
+	};
+
 	// Cart
 	const dispatch = useDispatch();
 
@@ -353,11 +360,53 @@ const PhoneDetailPage = () => {
 						<div className="phdr">Bài viết đánh giá</div>
 						<div className="p-3">
 							{phone.description ? (
-								<div
-									dangerouslySetInnerHTML={{
-										__html: phone.description
-									}}
-								></div>
+								<>
+									<div style={{ position: 'relative' }}>
+										<div
+											dangerouslySetInnerHTML={{
+												__html: phone.description
+											}}
+											style={
+												showFullDescription
+													? null
+													: {
+															height: 500,
+															overflowY: 'hidden'
+													  }
+											}
+										></div>
+										{!showFullDescription && (
+											<div
+												style={{
+													position: 'absolute',
+													height: 30,
+													bottom: 0,
+													width: '100%',
+													background:
+														'linear-gradient(to bottom,rgba(255 255 255/0),rgba(255 255 255/62.5),rgba(255 255 255/1))'
+												}}
+											/>
+										)}
+									</div>
+
+									<center>
+										<SplitButton
+											icon={
+												showFullDescription
+													? 'fas fa-eye-slash'
+													: 'fas fa-eye'
+											}
+											size="sm"
+											text={
+												showFullDescription
+													? 'Ẩn bớt'
+													: 'Xem thêm'
+											}
+											className="my-2"
+											onClick={handleShowDescription}
+										/>
+									</center>
+								</>
 							) : (
 								<Alert variant="danger" className="mb-0">
 									Không có!
